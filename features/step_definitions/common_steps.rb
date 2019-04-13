@@ -5,7 +5,7 @@ end
 Given("I save all emails") do
   i = 1
 
-  3.times do
+  120.times do
     find(:xpath, "(//a[@class='result-title hdrlnk'])[#{i}]").click
     if Capybara.has_xpath?("//button[@class='reply-button js-only']")
       find(:xpath, "//button[@class='reply-button js-only']").click
