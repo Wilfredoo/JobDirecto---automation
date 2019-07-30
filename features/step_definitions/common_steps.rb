@@ -1,8 +1,8 @@
-Given(/^I go to "([^"]*)"?/) do |url|
-  visit(url)
+Given(/^I go to "([^"]*)"?/) do |endpoint|
+  visit "https://newyork.craigslist.org/search/#{endpoint}"
 end
 
-Given("I save all emails") do
+Given(/^I save all emails of "([^"]*)"?/) do |endpoint|
   i = 1
 
   120.times do
@@ -17,7 +17,7 @@ Given("I save all emails") do
         end
       end
     end
-    step %{I go to "https://newyork.craigslist.org/search/fbh"}
+    step %{I go to "https://newyork.craigslist.org/search/#{endpoint}"}
     i += 1
   end
 end
