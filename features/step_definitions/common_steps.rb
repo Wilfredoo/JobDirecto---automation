@@ -6,7 +6,7 @@ Given(/^I save all emails of "([^"]*)"?/) do |endpoint|
   i = 1
   j = 0
 
-  240.times do
+  120.times do
     if i <= 120
       find(:xpath, "(//a[@class='result-title hdrlnk'])[#{i}]").click
     else
@@ -24,13 +24,13 @@ Given(/^I save all emails of "([^"]*)"?/) do |endpoint|
     end
     step %{I go to "https://newyork.craigslist.org/search/#{endpoint}"}
     i += 1
-    if i >= 120
-      j += 1
-      step %{I go to "https://newyork.craigslist.org/search/spa?s=120"}
-    else
-      step %{I go to "https://newyork.craigslist.org/search/spa"}
     end
   end
-end
 
 # trd - fbh - lab - spa - rfh
+#
+# if i >= 120
+#   j += 1
+#   step %{I go to "https://newyork.craigslist.org/search/spa?s=120"}
+# else
+#   step %{I go to "https://newyork.craigslist.org/search/spa"}
