@@ -5,9 +5,9 @@ Feature: Open multiple tabs in Craigslist
       And I save all emails of "<endpoint>"
 
         Examples:
-          |endpoint|
-          |fbh     |
-          |trd     |
-          |lab     |
-          |spa     |
-          |rfh     |
+          |endpoint   |
+          |fitness    |
+          |hospitality|
+          |artisan    |
+          |spa        |
+          |salon      |
