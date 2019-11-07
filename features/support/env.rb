@@ -30,6 +30,8 @@ Capybara.register_driver :poltergeist do |app|
     $platform = 'poltergeist'
 end
 
+
+
 # Please note: this is not BrowserStack, just setting
 # Chrome to use the 'mobile' views
 Capybara.configure do |config|
@@ -52,8 +54,16 @@ Capybara.configure do |config|
         Capybara.register_driver driver_name do |app|
             mobile_emulation = { 'deviceName' => device_name }
             $platform = driver_name
-            capabilities = Selenium::WebDriver::Remote::Capabilities.chrome('chromeOptions' => { 'mobileEmulation' => mobile_emulation })
-            Capybara::Selenium::Driver.new(app, browser: :chrome, desired_capabilities: capabilities)
-        end
+            capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
+    chromeOptions: {
+      args: %w[
+        headless disable-gpu no-sandbox
+        --window-size=1980,1080 --enable-features=NetworkService,NetworkServiceInProcess
+      ]
+    }
+  )
+
+
+Capybara::Selenium::Driver.new app, browser: :chrome, desired_capabilities: capabilities        end
     end
 end

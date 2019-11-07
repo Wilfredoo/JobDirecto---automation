@@ -1,5 +1,7 @@
 Given(/^I go to "([^"]*)"?/) do |url|
   visit(url)
+rescue
+    sleep(100000)
 end
 
 Given("I save all emails") do
@@ -30,11 +32,19 @@ def fetch_emails(i, emails)
           end
         end
       end
-      # step %{I go to "https://newyork.craigslist.org/search/fbh?s=#{emails}"}
-       step %{I go to "https://newyork.craigslist.org/search/rfh?s=#{emails}"}
+      # step %{I go to "https://newyork.craigslist.org/search/fbh?=#{emails}"}
       # step %{I go to "https://newyork.craigslist.org/search/lab?s=#{emails}"}
       # step %{I go to "https://newyork.craigslist.org/search/spa?s=#{emails}"}
-      # step %{I go to "https://newyork.craigslist.org/search/trd?s=#{emails}"}
+      step %{I go to "https://newyork.craigslist.org/search/trd?s=#{emails}"}
+      # next: ---
+# aaa
+# every 3 days
+      # step %{I go to "https://miami.craigslist.org/search/mdc/fbh?s=#{emails}"}
+      # step %{I go to "https://miami.craigslist.org/search/mdc/trd?s=#{emails}"}
+      # step %{I go to "https://miami.craigslist.org/search/mdc/lab?s=#{emails}"}
+      # step %{I go to "https://miami.craigslist.org/search/mdc/spa?s=#{emails}"}
+      # next: fbh
+
 end
 
 def click_next_button
